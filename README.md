@@ -10,6 +10,7 @@
 <ul>
 <li>MongoDB</li>
 <li>Nodejs</li>
+<li>Mongoose</li>
 <li>Express</li>
 <li>Handlebars</li>
 <li>Bootstrap</li>
