@@ -10,3 +10,8 @@
      font-weight: bold;
      font-size: 16px;
  }
+
+ .item{padding:2px;}
+ .item p{padding-left:5px;}
+ .dropdown-menu li button{width: 100%;}
+ .clearfix .btn{width:48%;margin-top:10px}

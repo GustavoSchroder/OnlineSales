@@ -1,0 +1,19 @@
+<form method="post" action="/add_product">
+    <div class="form-group">
+        <label for="nome-produto">Nome do Produto</label>
+        <input type="text" class="form-control" id="nome-produto" name="nome_produto" placeholder="Nome do Produto"/>
+    </div>
+    <div class="form-group">
+        <label for="descricao-produto">Descrição</label>
+        <textarea class="form-control" rows="3" id="descricao-produto" name="descricao_produto"/></textarea>
+    </div>
+    <div class="form-group">
+        <label for="imagem-produto">URL da Imagem</label>
+        <input type="text" class="form-control" id="imagem-produto" name="imagem_produto" placeholder="URL da Imagem"/>
+    </div>
+    <div class="form-group">
+        <label for="valor-produto">Valor do Produto</label>
+        <input type="number" class="form-control" id="valor-produto" name="valor_produto"/>
+    </div>
+    <button type="submit" class="btn btn-default">Salvar</button>
+</form>

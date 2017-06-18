@@ -1,14 +1,16 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
+var express      = require('express');
+var path         = require('path');
+var favicon      = require('serve-favicon');
+var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var expressHbs = require('express-handlebars');
-var mongoose = require('mongoose');
-var config  = require('./config');
+var bodyParser   = require('body-parser');
+var expressHbs   = require('express-handlebars');
+var session      = require('express-session');
+var mongoose     = require('mongoose');
+var MongoSess    = require('connect-mongo')(session);
+var config       = require('./config');
 
-var index = require('./routes/index');
+var index        = require('./routes/index');
 
 var app = express();
 
@@ -24,7 +26,19 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: 'cryptoSession', 
+  resave:false, 
+  saveUninitialized: false,
+  store: new MongoSess({mongooseConnection: mongoose.connection}),
+  cookie: {maxAge: 180 * 60 * 1000}
+}));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function(req, res, next){
+  res.locals.session = req.session;
+  next();
+});
 
 app.use('/', index);
 

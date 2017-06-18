@@ -11,7 +11,10 @@
                     <div class="price pull-left">
                         R$ {{ this.price }},00
                     </div>
-                    <a href="#" class="btn btn-success pull-right" role="button">Adicionar ao Carrinho</a>
+                </div>
+                <div class="clearfix">
+                    <a href="/remove_product/{{this._id}}" class="btn btn-danger" role="button">Remover da Lista</a>
+                    <a href="/add-cart/{{this._id}}" class="btn btn-success" role="button">Adicionar ao Carrinho</a>
                 </div>
             </div>
         </div>

@@ -1,0 +1,1 @@
+mongoose.connect('localhost:27017/shopping');
